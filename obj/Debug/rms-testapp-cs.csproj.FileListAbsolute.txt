@@ -1,0 +1,15 @@
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.csprojAssemblyReference.cache
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms_testapp_cs.Form1.resources
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms_testapp_cs.frmlogin.resources
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms_testapp_cs.Properties.Resources.resources
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.csproj.GenerateResource.cache
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.csproj.CoreCompileInputs.cache
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\rms-testapp-cs.exe.config
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\rms-testapp-cs.exe
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\rms-testapp-cs.pdb
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\Newtonsoft.Json.dll
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\RMS-SB.dll
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\bin\Debug\Newtonsoft.Json.xml
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.csproj.CopyComplete
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.exe
+C:\Users\sales\source\repos\RMS\rms-testapp-cs\obj\Debug\rms-testapp-cs.pdb
