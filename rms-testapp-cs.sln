@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30503.244
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "rms-testapp-cs", "rms-testapp-cs.csproj", "{D298D7BB-1989-4E1C-8247-C2B6731E5770}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D298D7BB-1989-4E1C-8247-C2B6731E5770}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D298D7BB-1989-4E1C-8247-C2B6731E5770}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D298D7BB-1989-4E1C-8247-C2B6731E5770}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D298D7BB-1989-4E1C-8247-C2B6731E5770}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {309423D7-DA98-48D8-A0C9-0B550E238F0C}
+	EndGlobalSection
+EndGlobal
