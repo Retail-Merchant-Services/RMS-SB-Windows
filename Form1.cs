@@ -83,7 +83,7 @@ namespace rms_testapp_cs
         private void cmdGetAccessToken_Click(object sender, EventArgs e)
         {
             //If you receive script errors on login then call this 
-            IEbrowserFix();
+           // IEbrowserFix();
             var rms = new SmartBridge.Api();
             rms.setoAuthUrl(txtoAuthUrl.Text);
             rms.setBaseUrl(txtBaseUrl.Text);
@@ -128,6 +128,9 @@ namespace rms_testapp_cs
                 rms.setCallBackUrl(txtReturnUrl.Text);
                 rms.SetActiveTerminal(txtTerminalId.Text);
                 MessageBox.Show("The terminal has been set");
+ 
+                Properties.Settings.Default.Save();
+ 
             }
             catch (Exception ex)
             {
@@ -153,7 +156,7 @@ namespace rms_testapp_cs
                 {
                     var li = new ListViewItem();
                     li.Text = terminal["terminalId"].ToString();
-                    li.SubItems.Add(terminal["terminalName"].ToString());
+                    li.SubItems.Add((terminal["terminalName"] is null)? terminal["terminalId"].ToString():terminal["terminalName"].ToString());
                     li.SubItems.Add(terminal["terminalStatus"].ToString());
                     lvTerminals.Items.Add(li);
                 }
@@ -240,18 +243,634 @@ namespace rms_testapp_cs
                 MessageBox.Show(ex.Message);
                 return;
             }
+            lblTransstatus.Text = (resp is null)?"":resp.ToString();
 
-            lblTransstatus.Text = resp.ToString();
         }
 
         private void cmdCancelTransaction_Click(object sender, EventArgs e)
         {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            object resp;
+            try
+            {
+                resp = rms.CancelTransaction((string)cmdCheckStatus.Tag);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            lblTransstatus.Text = (resp is null) ? "" : resp.ToString();
 
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(int.Parse(txtamount.Text), txtCurrency.Text, "REFUND");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("Refund Transaction successfull \r\nCheck Status for approval");
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            object resp;
+            try
+            {
+                resp = rms.CancelTransaction((string)cmdCheckStatus.Tag);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            lblTransstatus.Text = (resp is null) ? "" : resp.ToString();
+        }
+
+        private void cmdTest1_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            Properties.Settings.Default.Save();
+            string url = rms.getoAuthUrl();
+            var frm = new frmlogin();
+            frm.webBrowser1.Navigate(url);
+            frm.ShowDialog();
+            string code = (string)frm.Tag;
+            frm.Close();
+            frm = default;
+            if (string.IsNullOrEmpty(code))
+                return;
+            try
+            {
+                JObject resp = (JObject)rms.GetToken(code);
+                lblOutput.Text = resp.ToString();
+                txtaccess.Text = (string)resp["access_token"];
+                txtRefresh.Text = (string)resp["refresh_token"];
+                MessageBox.Show("Login Successfull");
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cmdTest2_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            object terminals;
+            lvTerminals.Items.Clear();
+            try
+            {
+                terminals = rms.GetTerminalList();
+                lblOutput.Text = terminals.ToString();
+                foreach (JObject terminal in (IEnumerable)terminals)
+                {
+                    var li = new ListViewItem();
+                    li.Text = terminal["terminalId"].ToString();
+                    li.SubItems.Add((terminal["terminalName"] is null) ? terminal["terminalId"].ToString() : terminal["terminalName"].ToString());
+                    li.SubItems.Add(terminal["terminalStatus"].ToString());
+                    lvTerminals.Items.Add(li);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void cmdTest3_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("Transaction " + transactionid + " successfull \r\nCheck Status for approval");
+        }
+
+        private void cmdTest4_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "REFUND");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("REFUND Transaction " + transactionid + " successfull \r\nCheck Status for approval");
+        }
+
+        private void cmdTest5_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("Transaction " + transactionid + " successfull \r\nPlease press cancel on the terminal");
+        }
+
+        private void cmdTest6_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created ");
+            try
+            {
+                resp= (JObject)rms.CancelTransaction(transactionid);
+                lblOutput.Text += resp.ToString();
+
+            }
+            catch (Exception ex) { }
+          
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("Transaction " + transactionid + "  canceled");
+        }
+
+        private void cmdTest7_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.GetTransactionsByStatus("SUCCESSFUL");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void cmdTest8_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.GetTransactionsByType("SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void cmdTest9_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created ");
+            try
+            {
+                resp = (JObject)rms.GetTransactionById(transactionid);
+                lblOutput.Text += resp.ToString();
+
+            }
+            catch (Exception ex) { }
+
+            cmdCheckStatus.Tag = transactionid;
+          
+        }
+
+        private void cmdTest10_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created , Retrieving Details...");
+            try
+            {
+                resp = (JObject)rms.GetTransactionById(transactionid);
+                lblOutput.Text += resp.ToString();
+
+            }
+            catch (Exception ex) { }
+
+            cmdCheckStatus.Tag = transactionid;
+
+        }
+
+        private void cmdTest11_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created.\n Complete the transaction on the terminal. \nThen press ok on this Dialog");
+            try
+            {
+                resp = (JObject)rms.GetTransactionById(transactionid);
+                lblOutput.Text += resp.ToString();
+
+            }
+            catch (Exception ex) { }
+
+            cmdCheckStatus.Tag = transactionid;
+        }
+
+        private void cmdTest12_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created.\n Cancel the transaction on the terminal. \nThen press ok on this Dialog");
+            try
+            {
+                resp = (JObject)rms.GetTransactionById(transactionid);
+                lblOutput.Text += resp.ToString();
+
+            }
+            catch (Exception ex) { }
+
+            cmdCheckStatus.Tag = transactionid;
+        }
+
+        private void cmdTest13_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            MessageBox.Show("Transaction " + transactionid + " created.\nPress ok on this Dialog when you want the Transaction Stage");
+            try
+            {
+                resp = (JObject)rms.GetTransactionById(transactionid);
+                lblOutput.Text += "\nTransaction Stage:"+ resp["transactionStage"].ToString()+"\n";
+
+            }
+            catch (Exception ex) { }
+
+            cmdCheckStatus.Tag = transactionid;
+        }
+
+        private void cmdTest14_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdTest19_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            rms.RequestReportByType("XBAL");
+        }
+
+        private void cmdTest20_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            rms.RequestReportByType("ZBAL");
+        }
+
+        private void cmdTest15_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void cmdTest16_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void cmdTest17_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE");
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+        }
+
+        private void cmdTest18_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.GetTransactions();
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
         }
     }
 }
