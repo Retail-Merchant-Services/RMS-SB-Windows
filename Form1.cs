@@ -872,5 +872,49 @@ namespace rms_testapp_cs
                 return;
             }
         }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cmdLogout_Click(object sender, EventArgs e)
+        {
+            //If you receive script errors on login then call this 
+            // IEbrowserFix();
+            var rms = new SmartBridge.Api();
+            rms.setoAuthUrl(txtoAuthUrl.Text);
+            rms.setBaseUrl(txtBaseUrl.Text);
+            rms.setKey(txtClientID.Text);
+            rms.setSecret(txtSecret.Text);
+            rms.setCallBackUrl(txtReturnUrl.Text);
+            Properties.Settings.Default.Save();
+            string url = rms.getLogoutUrl();
+            var frm = new frmlogin();
+            frm.webBrowser1.Navigate(url);
+            frm.ShowDialog();
+            string code = (string)frm.Tag;
+            frm.Close();
+            frm = default;
+            if (string.IsNullOrEmpty(code))
+                return;
+            try
+            {
+                JObject resp = (JObject)rms.GetToken(code);
+                txtaccess.Text = (string)resp["access_token"];
+                txtRefresh.Text = (string)resp["refresh_token"];
+                MessageBox.Show("Login Successfull");
+                Properties.Settings.Default.Save();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

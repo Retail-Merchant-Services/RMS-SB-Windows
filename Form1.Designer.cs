@@ -31,7 +31,6 @@
             this.cmdGetAccessToken = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
- 
             this.txtBaseUrl = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.txtoAuthUrl = new System.Windows.Forms.TextBox();
@@ -45,9 +44,9 @@
             this.Label2 = new System.Windows.Forms.Label();
             this.txtReturnUrl = new System.Windows.Forms.TextBox();
             this.txtSecret = new System.Windows.Forms.TextBox();
- 
             this.Label3 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.cmdLogout = new System.Windows.Forms.Button();
             this.cmdRefreshToken = new System.Windows.Forms.Button();
             this.cmdGetTerminalList = new System.Windows.Forms.Button();
             this.lvTerminals = new System.Windows.Forms.ListView();
@@ -56,10 +55,10 @@
             this.ColumnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.Label6 = new System.Windows.Forms.Label();
             this.cmdSetTerminal = new System.Windows.Forms.Button();
- 
             this.txtTerminalId = new System.Windows.Forms.TextBox();
- 
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.txtamount = new System.Windows.Forms.TextBox();
             this.cmdCheckStatus = new System.Windows.Forms.Button();
             this.Label4 = new System.Windows.Forms.Label();
@@ -67,11 +66,27 @@
             this.Label5 = new System.Windows.Forms.Label();
             this.CmdMakeTransaction = new System.Windows.Forms.Button();
             this.txtCurrency = new System.Windows.Forms.TextBox();
-
-            this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.cmdTest20 = new System.Windows.Forms.Button();
+            this.cmdTest19 = new System.Windows.Forms.Button();
+            this.cmdTest18 = new System.Windows.Forms.Button();
+            this.cmdTest17 = new System.Windows.Forms.Button();
+            this.cmdTest16 = new System.Windows.Forms.Button();
+            this.cmdTest15 = new System.Windows.Forms.Button();
+            this.cmdTest14 = new System.Windows.Forms.Button();
+            this.cmdTest13 = new System.Windows.Forms.Button();
+            this.cmdTest12 = new System.Windows.Forms.Button();
+            this.cmdTest11 = new System.Windows.Forms.Button();
+            this.cmdTest10 = new System.Windows.Forms.Button();
+            this.cmdTest9 = new System.Windows.Forms.Button();
+            this.cmdTest8 = new System.Windows.Forms.Button();
+            this.cmdTest7 = new System.Windows.Forms.Button();
+            this.cmdTest6 = new System.Windows.Forms.Button();
+            this.cmdTest5 = new System.Windows.Forms.Button();
+            this.cmdTest4 = new System.Windows.Forms.Button();
+            this.cmdTest3 = new System.Windows.Forms.Button();
+            this.cmdTest2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
@@ -93,36 +108,14 @@
             this.label29 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.cmdTest1 = new System.Windows.Forms.Button();
-            this.cmdTest2 = new System.Windows.Forms.Button();
-            this.cmdTest3 = new System.Windows.Forms.Button();
-            this.cmdTest4 = new System.Windows.Forms.Button();
-            this.cmdTest5 = new System.Windows.Forms.Button();
-            this.cmdTest6 = new System.Windows.Forms.Button();
-            this.cmdTest7 = new System.Windows.Forms.Button();
-            this.cmdTest8 = new System.Windows.Forms.Button();
-            this.cmdTest9 = new System.Windows.Forms.Button();
-            this.cmdTest10 = new System.Windows.Forms.Button();
-            this.cmdTest11 = new System.Windows.Forms.Button();
-            this.cmdTest12 = new System.Windows.Forms.Button();
-            this.cmdTest13 = new System.Windows.Forms.Button();
-            this.cmdTest14 = new System.Windows.Forms.Button();
-            this.cmdTest15 = new System.Windows.Forms.Button();
-            this.cmdTest16 = new System.Windows.Forms.Button();
-            this.cmdTest17 = new System.Windows.Forms.Button();
-            this.cmdTest18 = new System.Windows.Forms.Button();
-            this.cmdTest19 = new System.Windows.Forms.Button();
-            this.cmdTest20 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
-            this.lblOutput = new System.Windows.Forms.Label();
-
+            this.lblOutput = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-
             this.tabPage4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-
             this.SuspendLayout();
             // 
             // cmdGetAccessToken
@@ -140,16 +133,12 @@
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
             this.tabControl1.Controls.Add(this.tabPage3);
-
             this.tabControl1.Controls.Add(this.tabPage4);
-
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-
-            this.tabControl1.Size = new System.Drawing.Size(800, 614);
-
+            this.tabControl1.Size = new System.Drawing.Size(902, 614);
             this.tabControl1.TabIndex = 39;
             // 
             // tabPage1
@@ -171,13 +160,12 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(792, 424);
+            this.tabPage1.Size = new System.Drawing.Size(894, 588);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Credentials";
             this.tabPage1.UseVisualStyleBackColor = true;
             this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
             // 
-
             // txtBaseUrl
             // 
             this.txtBaseUrl.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::rms_testapp_cs.Properties.Settings.Default, "apiUrl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -232,7 +220,6 @@
             this.txtaccess.TabIndex = 45;
             this.txtaccess.Text = global::rms_testapp_cs.Properties.Settings.Default.acc_token;
             // 
-
             // Label8
             // 
             this.Label8.AutoSize = true;
@@ -260,7 +247,6 @@
             this.Label1.TabIndex = 38;
             this.Label1.Text = "SB ClientID*";
             // 
-
             // txtRefresh
             // 
             this.txtRefresh.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::rms_testapp_cs.Properties.Settings.Default, "refresh_token", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -270,7 +256,6 @@
             this.txtRefresh.TabIndex = 47;
             this.txtRefresh.Text = global::rms_testapp_cs.Properties.Settings.Default.refresh_token;
             // 
-
             // Label2
             // 
             this.Label2.AutoSize = true;
@@ -280,7 +265,6 @@
             this.Label2.TabIndex = 39;
             this.Label2.Text = "SB Secret*";
             // 
-
             // txtReturnUrl
             // 
             this.txtReturnUrl.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::rms_testapp_cs.Properties.Settings.Default, "callbackurl", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -299,7 +283,6 @@
             this.txtSecret.TabIndex = 41;
             this.txtSecret.Text = global::rms_testapp_cs.Properties.Settings.Default.secret;
             // 
-
             // Label3
             // 
             this.Label3.AutoSize = true;
@@ -311,6 +294,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.cmdLogout);
             this.tabPage2.Controls.Add(this.cmdRefreshToken);
             this.tabPage2.Controls.Add(this.cmdGetTerminalList);
             this.tabPage2.Controls.Add(this.lvTerminals);
@@ -321,12 +305,20 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-
-            this.tabPage2.Size = new System.Drawing.Size(792, 588);
-
+            this.tabPage2.Size = new System.Drawing.Size(894, 588);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Merchant";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // cmdLogout
+            // 
+            this.cmdLogout.Location = new System.Drawing.Point(166, 6);
+            this.cmdLogout.Name = "cmdLogout";
+            this.cmdLogout.Size = new System.Drawing.Size(154, 23);
+            this.cmdLogout.TabIndex = 50;
+            this.cmdLogout.Text = "Logout";
+            this.cmdLogout.UseVisualStyleBackColor = true;
+            this.cmdLogout.Click += new System.EventHandler(this.cmdLogout_Click);
             // 
             // cmdRefreshToken
             // 
@@ -340,7 +332,7 @@
             // 
             // cmdGetTerminalList
             // 
-            this.cmdGetTerminalList.Location = new System.Drawing.Point(276, 22);
+            this.cmdGetTerminalList.Location = new System.Drawing.Point(374, 27);
             this.cmdGetTerminalList.Name = "cmdGetTerminalList";
             this.cmdGetTerminalList.Size = new System.Drawing.Size(172, 23);
             this.cmdGetTerminalList.TabIndex = 43;
@@ -395,7 +387,6 @@
             this.cmdSetTerminal.UseVisualStyleBackColor = true;
             this.cmdSetTerminal.Click += new System.EventHandler(this.cmdSetTerminal_Click);
             // 
-
             // txtTerminalId
             // 
             this.txtTerminalId.DataBindings.Add(new System.Windows.Forms.Binding("Text", global::rms_testapp_cs.Properties.Settings.Default, "rms_tid", true, System.Windows.Forms.DataSourceUpdateMode.OnPropertyChanged));
@@ -409,7 +400,6 @@
             // 
             this.tabPage3.Controls.Add(this.button2);
             this.tabPage3.Controls.Add(this.button1);
-
             this.tabPage3.Controls.Add(this.txtamount);
             this.tabPage3.Controls.Add(this.cmdCheckStatus);
             this.tabPage3.Controls.Add(this.Label4);
@@ -420,12 +410,30 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 22);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-
-            this.tabPage3.Size = new System.Drawing.Size(792, 588);
-
+            this.tabPage3.Size = new System.Drawing.Size(894, 588);
             this.tabPage3.TabIndex = 2;
             this.tabPage3.Text = "Transaction";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(297, 92);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(188, 23);
+            this.button2.TabIndex = 33;
+            this.button2.Text = "Cancel Transaction";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(507, 63);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(188, 23);
+            this.button1.TabIndex = 32;
+            this.button1.Text = "Issue Refund";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // txtamount
             // 
@@ -490,34 +498,13 @@
             this.txtCurrency.TabIndex = 28;
             this.txtCurrency.Text = "GBP";
             // 
-
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(507, 63);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(188, 23);
-            this.button1.TabIndex = 32;
-            this.button1.Text = "Issue Refund";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(297, 92);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(188, 23);
-            this.button2.TabIndex = 33;
-            this.button2.Text = "Cancel Transaction";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.tableLayoutPanel1);
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(792, 588);
+            this.tabPage4.Size = new System.Drawing.Size(894, 588);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Test Cases";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -573,7 +560,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 20;
+            this.tableLayoutPanel1.RowCount = 21;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -594,8 +581,218 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(786, 582);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(888, 582);
             this.tableLayoutPanel1.TabIndex = 0;
+            this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
+            // 
+            // cmdTest20
+            // 
+            this.cmdTest20.Location = new System.Drawing.Point(404, 554);
+            this.cmdTest20.Name = "cmdTest20";
+            this.cmdTest20.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest20.TabIndex = 39;
+            this.cmdTest20.Text = "Run Test";
+            this.cmdTest20.UseVisualStyleBackColor = true;
+            this.cmdTest20.Click += new System.EventHandler(this.cmdTest20_Click);
+            // 
+            // cmdTest19
+            // 
+            this.cmdTest19.Location = new System.Drawing.Point(404, 525);
+            this.cmdTest19.Name = "cmdTest19";
+            this.cmdTest19.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest19.TabIndex = 38;
+            this.cmdTest19.Text = "Run Test";
+            this.cmdTest19.UseVisualStyleBackColor = true;
+            this.cmdTest19.Click += new System.EventHandler(this.cmdTest19_Click);
+            // 
+            // cmdTest18
+            // 
+            this.cmdTest18.Location = new System.Drawing.Point(404, 496);
+            this.cmdTest18.Name = "cmdTest18";
+            this.cmdTest18.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest18.TabIndex = 37;
+            this.cmdTest18.Text = "Run Test";
+            this.cmdTest18.UseVisualStyleBackColor = true;
+            this.cmdTest18.Click += new System.EventHandler(this.cmdTest18_Click);
+            // 
+            // cmdTest17
+            // 
+            this.cmdTest17.Location = new System.Drawing.Point(404, 467);
+            this.cmdTest17.Name = "cmdTest17";
+            this.cmdTest17.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest17.TabIndex = 36;
+            this.cmdTest17.Text = "Run Test";
+            this.cmdTest17.UseVisualStyleBackColor = true;
+            this.cmdTest17.Click += new System.EventHandler(this.cmdTest17_Click);
+            // 
+            // cmdTest16
+            // 
+            this.cmdTest16.Location = new System.Drawing.Point(404, 438);
+            this.cmdTest16.Name = "cmdTest16";
+            this.cmdTest16.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest16.TabIndex = 35;
+            this.cmdTest16.Text = "Run Test";
+            this.cmdTest16.UseVisualStyleBackColor = true;
+            this.cmdTest16.Click += new System.EventHandler(this.cmdTest16_Click);
+            // 
+            // cmdTest15
+            // 
+            this.cmdTest15.Location = new System.Drawing.Point(404, 409);
+            this.cmdTest15.Name = "cmdTest15";
+            this.cmdTest15.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest15.TabIndex = 34;
+            this.cmdTest15.Text = "Run Test";
+            this.cmdTest15.UseVisualStyleBackColor = true;
+            this.cmdTest15.Click += new System.EventHandler(this.cmdTest15_Click);
+            // 
+            // cmdTest14
+            // 
+            this.cmdTest14.Location = new System.Drawing.Point(404, 380);
+            this.cmdTest14.Name = "cmdTest14";
+            this.cmdTest14.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest14.TabIndex = 33;
+            this.cmdTest14.Text = "Run Test";
+            this.cmdTest14.UseVisualStyleBackColor = true;
+            this.cmdTest14.Click += new System.EventHandler(this.cmdTest14_Click);
+            // 
+            // cmdTest13
+            // 
+            this.cmdTest13.Location = new System.Drawing.Point(404, 351);
+            this.cmdTest13.Name = "cmdTest13";
+            this.cmdTest13.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest13.TabIndex = 32;
+            this.cmdTest13.Text = "Run Test";
+            this.cmdTest13.UseVisualStyleBackColor = true;
+            this.cmdTest13.Click += new System.EventHandler(this.cmdTest13_Click);
+            // 
+            // cmdTest12
+            // 
+            this.cmdTest12.Location = new System.Drawing.Point(404, 322);
+            this.cmdTest12.Name = "cmdTest12";
+            this.cmdTest12.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest12.TabIndex = 31;
+            this.cmdTest12.Text = "Run Test";
+            this.cmdTest12.UseVisualStyleBackColor = true;
+            this.cmdTest12.Click += new System.EventHandler(this.cmdTest12_Click);
+            // 
+            // cmdTest11
+            // 
+            this.cmdTest11.Location = new System.Drawing.Point(404, 293);
+            this.cmdTest11.Name = "cmdTest11";
+            this.cmdTest11.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest11.TabIndex = 30;
+            this.cmdTest11.Text = "Run Test";
+            this.cmdTest11.UseVisualStyleBackColor = true;
+            this.cmdTest11.Click += new System.EventHandler(this.cmdTest11_Click);
+            // 
+            // cmdTest10
+            // 
+            this.cmdTest10.Location = new System.Drawing.Point(404, 264);
+            this.cmdTest10.Name = "cmdTest10";
+            this.cmdTest10.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest10.TabIndex = 29;
+            this.cmdTest10.Text = "Run Test";
+            this.cmdTest10.UseVisualStyleBackColor = true;
+            this.cmdTest10.Click += new System.EventHandler(this.cmdTest10_Click);
+            // 
+            // cmdTest9
+            // 
+            this.cmdTest9.Location = new System.Drawing.Point(404, 235);
+            this.cmdTest9.Name = "cmdTest9";
+            this.cmdTest9.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest9.TabIndex = 28;
+            this.cmdTest9.Text = "Run Test";
+            this.cmdTest9.UseVisualStyleBackColor = true;
+            this.cmdTest9.Click += new System.EventHandler(this.cmdTest9_Click);
+            // 
+            // cmdTest8
+            // 
+            this.cmdTest8.Location = new System.Drawing.Point(404, 206);
+            this.cmdTest8.Name = "cmdTest8";
+            this.cmdTest8.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest8.TabIndex = 27;
+            this.cmdTest8.Text = "Run Test";
+            this.cmdTest8.UseVisualStyleBackColor = true;
+            this.cmdTest8.Click += new System.EventHandler(this.cmdTest8_Click);
+            // 
+            // cmdTest7
+            // 
+            this.cmdTest7.Location = new System.Drawing.Point(404, 177);
+            this.cmdTest7.Name = "cmdTest7";
+            this.cmdTest7.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest7.TabIndex = 26;
+            this.cmdTest7.Text = "Run Test";
+            this.cmdTest7.UseVisualStyleBackColor = true;
+            this.cmdTest7.Click += new System.EventHandler(this.cmdTest7_Click);
+            // 
+            // cmdTest6
+            // 
+            this.cmdTest6.Location = new System.Drawing.Point(404, 148);
+            this.cmdTest6.Name = "cmdTest6";
+            this.cmdTest6.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest6.TabIndex = 25;
+            this.cmdTest6.Text = "Run Test";
+            this.cmdTest6.UseVisualStyleBackColor = true;
+            this.cmdTest6.Click += new System.EventHandler(this.cmdTest6_Click);
+            // 
+            // cmdTest5
+            // 
+            this.cmdTest5.Location = new System.Drawing.Point(404, 119);
+            this.cmdTest5.Name = "cmdTest5";
+            this.cmdTest5.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest5.TabIndex = 24;
+            this.cmdTest5.Text = "Run Test";
+            this.cmdTest5.UseVisualStyleBackColor = true;
+            this.cmdTest5.Click += new System.EventHandler(this.cmdTest5_Click);
+            // 
+            // cmdTest4
+            // 
+            this.cmdTest4.Location = new System.Drawing.Point(404, 90);
+            this.cmdTest4.Name = "cmdTest4";
+            this.cmdTest4.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest4.TabIndex = 23;
+            this.cmdTest4.Text = "Run Test";
+            this.cmdTest4.UseVisualStyleBackColor = true;
+            this.cmdTest4.Click += new System.EventHandler(this.cmdTest4_Click);
+            // 
+            // cmdTest3
+            // 
+            this.cmdTest3.Location = new System.Drawing.Point(404, 61);
+            this.cmdTest3.Name = "cmdTest3";
+            this.cmdTest3.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest3.TabIndex = 22;
+            this.cmdTest3.Text = "Run Test";
+            this.cmdTest3.UseVisualStyleBackColor = true;
+            this.cmdTest3.Click += new System.EventHandler(this.cmdTest3_Click);
+            // 
+            // cmdTest2
+            // 
+            this.cmdTest2.Location = new System.Drawing.Point(404, 32);
+            this.cmdTest2.Name = "cmdTest2";
+            this.cmdTest2.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest2.TabIndex = 21;
+            this.cmdTest2.Text = "Run Test";
+            this.cmdTest2.UseVisualStyleBackColor = true;
+            this.cmdTest2.Click += new System.EventHandler(this.cmdTest2_Click);
             // 
             // label11
             // 
@@ -788,196 +985,6 @@
             this.cmdTest1.UseVisualStyleBackColor = true;
             this.cmdTest1.Click += new System.EventHandler(this.cmdTest1_Click);
             // 
-            // cmdTest2
-            // 
-            this.cmdTest2.Location = new System.Drawing.Point(404, 32);
-            this.cmdTest2.Name = "cmdTest2";
-            this.cmdTest2.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest2.TabIndex = 21;
-            this.cmdTest2.Text = "Run Test";
-            this.cmdTest2.UseVisualStyleBackColor = true;
-            this.cmdTest2.Click += new System.EventHandler(this.cmdTest2_Click);
-            // 
-            // cmdTest3
-            // 
-            this.cmdTest3.Location = new System.Drawing.Point(404, 61);
-            this.cmdTest3.Name = "cmdTest3";
-            this.cmdTest3.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest3.TabIndex = 22;
-            this.cmdTest3.Text = "Run Test";
-            this.cmdTest3.UseVisualStyleBackColor = true;
-            this.cmdTest3.Click += new System.EventHandler(this.cmdTest3_Click);
-            // 
-            // cmdTest4
-            // 
-            this.cmdTest4.Location = new System.Drawing.Point(404, 90);
-            this.cmdTest4.Name = "cmdTest4";
-            this.cmdTest4.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest4.TabIndex = 23;
-            this.cmdTest4.Text = "Run Test";
-            this.cmdTest4.UseVisualStyleBackColor = true;
-            this.cmdTest4.Click += new System.EventHandler(this.cmdTest4_Click);
-            // 
-            // cmdTest5
-            // 
-            this.cmdTest5.Location = new System.Drawing.Point(404, 119);
-            this.cmdTest5.Name = "cmdTest5";
-            this.cmdTest5.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest5.TabIndex = 24;
-            this.cmdTest5.Text = "Run Test";
-            this.cmdTest5.UseVisualStyleBackColor = true;
-            this.cmdTest5.Click += new System.EventHandler(this.cmdTest5_Click);
-            // 
-            // cmdTest6
-            // 
-            this.cmdTest6.Location = new System.Drawing.Point(404, 148);
-            this.cmdTest6.Name = "cmdTest6";
-            this.cmdTest6.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest6.TabIndex = 25;
-            this.cmdTest6.Text = "Run Test";
-            this.cmdTest6.UseVisualStyleBackColor = true;
-            this.cmdTest6.Click += new System.EventHandler(this.cmdTest6_Click);
-            // 
-            // cmdTest7
-            // 
-            this.cmdTest7.Location = new System.Drawing.Point(404, 177);
-            this.cmdTest7.Name = "cmdTest7";
-            this.cmdTest7.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest7.TabIndex = 26;
-            this.cmdTest7.Text = "Run Test";
-            this.cmdTest7.UseVisualStyleBackColor = true;
-            this.cmdTest7.Click += new System.EventHandler(this.cmdTest7_Click);
-            // 
-            // cmdTest8
-            // 
-            this.cmdTest8.Location = new System.Drawing.Point(404, 206);
-            this.cmdTest8.Name = "cmdTest8";
-            this.cmdTest8.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest8.TabIndex = 27;
-            this.cmdTest8.Text = "Run Test";
-            this.cmdTest8.UseVisualStyleBackColor = true;
-            this.cmdTest8.Click += new System.EventHandler(this.cmdTest8_Click);
-            // 
-            // cmdTest9
-            // 
-            this.cmdTest9.Location = new System.Drawing.Point(404, 235);
-            this.cmdTest9.Name = "cmdTest9";
-            this.cmdTest9.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest9.TabIndex = 28;
-            this.cmdTest9.Text = "Run Test";
-            this.cmdTest9.UseVisualStyleBackColor = true;
-            this.cmdTest9.Click += new System.EventHandler(this.cmdTest9_Click);
-            // 
-            // cmdTest10
-            // 
-            this.cmdTest10.Location = new System.Drawing.Point(404, 264);
-            this.cmdTest10.Name = "cmdTest10";
-            this.cmdTest10.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest10.TabIndex = 29;
-            this.cmdTest10.Text = "Run Test";
-            this.cmdTest10.UseVisualStyleBackColor = true;
-            this.cmdTest10.Click += new System.EventHandler(this.cmdTest10_Click);
-            // 
-            // cmdTest11
-            // 
-            this.cmdTest11.Location = new System.Drawing.Point(404, 293);
-            this.cmdTest11.Name = "cmdTest11";
-            this.cmdTest11.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest11.TabIndex = 30;
-            this.cmdTest11.Text = "Run Test";
-            this.cmdTest11.UseVisualStyleBackColor = true;
-            this.cmdTest11.Click += new System.EventHandler(this.cmdTest11_Click);
-            // 
-            // cmdTest12
-            // 
-            this.cmdTest12.Location = new System.Drawing.Point(404, 322);
-            this.cmdTest12.Name = "cmdTest12";
-            this.cmdTest12.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest12.TabIndex = 31;
-            this.cmdTest12.Text = "Run Test";
-            this.cmdTest12.UseVisualStyleBackColor = true;
-            this.cmdTest12.Click += new System.EventHandler(this.cmdTest12_Click);
-            // 
-            // cmdTest13
-            // 
-            this.cmdTest13.Location = new System.Drawing.Point(404, 351);
-            this.cmdTest13.Name = "cmdTest13";
-            this.cmdTest13.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest13.TabIndex = 32;
-            this.cmdTest13.Text = "Run Test";
-            this.cmdTest13.UseVisualStyleBackColor = true;
-            this.cmdTest13.Click += new System.EventHandler(this.cmdTest13_Click);
-            // 
-            // cmdTest14
-            // 
-            this.cmdTest14.Location = new System.Drawing.Point(404, 380);
-            this.cmdTest14.Name = "cmdTest14";
-            this.cmdTest14.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest14.TabIndex = 33;
-            this.cmdTest14.Text = "Run Test";
-            this.cmdTest14.UseVisualStyleBackColor = true;
-            this.cmdTest14.Click += new System.EventHandler(this.cmdTest14_Click);
-            // 
-            // cmdTest15
-            // 
-            this.cmdTest15.Location = new System.Drawing.Point(404, 409);
-            this.cmdTest15.Name = "cmdTest15";
-            this.cmdTest15.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest15.TabIndex = 34;
-            this.cmdTest15.Text = "Run Test";
-            this.cmdTest15.UseVisualStyleBackColor = true;
-            this.cmdTest15.Click += new System.EventHandler(this.cmdTest15_Click);
-            // 
-            // cmdTest16
-            // 
-            this.cmdTest16.Location = new System.Drawing.Point(404, 438);
-            this.cmdTest16.Name = "cmdTest16";
-            this.cmdTest16.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest16.TabIndex = 35;
-            this.cmdTest16.Text = "Run Test";
-            this.cmdTest16.UseVisualStyleBackColor = true;
-            this.cmdTest16.Click += new System.EventHandler(this.cmdTest16_Click);
-            // 
-            // cmdTest17
-            // 
-            this.cmdTest17.Location = new System.Drawing.Point(404, 467);
-            this.cmdTest17.Name = "cmdTest17";
-            this.cmdTest17.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest17.TabIndex = 36;
-            this.cmdTest17.Text = "Run Test";
-            this.cmdTest17.UseVisualStyleBackColor = true;
-            this.cmdTest17.Click += new System.EventHandler(this.cmdTest17_Click);
-            // 
-            // cmdTest18
-            // 
-            this.cmdTest18.Location = new System.Drawing.Point(404, 496);
-            this.cmdTest18.Name = "cmdTest18";
-            this.cmdTest18.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest18.TabIndex = 37;
-            this.cmdTest18.Text = "Run Test";
-            this.cmdTest18.UseVisualStyleBackColor = true;
-            this.cmdTest18.Click += new System.EventHandler(this.cmdTest18_Click);
-            // 
-            // cmdTest19
-            // 
-            this.cmdTest19.Location = new System.Drawing.Point(404, 525);
-            this.cmdTest19.Name = "cmdTest19";
-            this.cmdTest19.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest19.TabIndex = 38;
-            this.cmdTest19.Text = "Run Test";
-            this.cmdTest19.UseVisualStyleBackColor = true;
-            this.cmdTest19.Click += new System.EventHandler(this.cmdTest19_Click);
-            // 
-            // cmdTest20
-            // 
-            this.cmdTest20.Location = new System.Drawing.Point(404, 554);
-            this.cmdTest20.Name = "cmdTest20";
-            this.cmdTest20.Size = new System.Drawing.Size(75, 23);
-            this.cmdTest20.TabIndex = 39;
-            this.cmdTest20.Text = "Run Test";
-            this.cmdTest20.UseVisualStyleBackColor = true;
-            this.cmdTest20.Click += new System.EventHandler(this.cmdTest20_Click);
-            // 
             // label31
             // 
             this.label31.AutoSize = true;
@@ -989,25 +996,23 @@
             // 
             // lblOutput
             // 
-            this.lblOutput.AutoSize = true;
-            this.lblOutput.Location = new System.Drawing.Point(485, 29);
+            this.lblOutput.Location = new System.Drawing.Point(485, 32);
+            this.lblOutput.Multiline = true;
             this.lblOutput.Name = "lblOutput";
             this.tableLayoutPanel1.SetRowSpan(this.lblOutput, 19);
-            this.lblOutput.Size = new System.Drawing.Size(169, 13);
-            this.lblOutput.TabIndex = 41;
-            this.lblOutput.Text = "Output from the test will show here";
- 
+            this.lblOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.lblOutput.Size = new System.Drawing.Size(398, 545);
+            this.lblOutput.TabIndex = 42;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
- 
-            this.ClientSize = new System.Drawing.Size(800, 614);
- 
+            this.ClientSize = new System.Drawing.Size(902, 614);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "RMS Test App ";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -1015,11 +1020,9 @@
             this.tabPage2.PerformLayout();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
- 
             this.tabPage4.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
- 
             this.ResumeLayout(false);
 
         }
@@ -1107,8 +1110,8 @@
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.Button cmdTest1;
         private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label lblOutput;
-
+        internal System.Windows.Forms.Button cmdLogout;
+        private System.Windows.Forms.TextBox lblOutput;
     }
 }
 
