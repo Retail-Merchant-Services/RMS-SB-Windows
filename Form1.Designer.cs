@@ -110,6 +110,8 @@
             this.cmdTest1 = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
             this.lblOutput = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.cmdTest_20 = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,7 +140,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(902, 614);
+            this.tabControl1.Size = new System.Drawing.Size(902, 657);
             this.tabControl1.TabIndex = 39;
             // 
             // tabPage1
@@ -504,7 +506,7 @@
             this.tabPage4.Location = new System.Drawing.Point(4, 22);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage4.Size = new System.Drawing.Size(894, 588);
+            this.tabPage4.Size = new System.Drawing.Size(894, 631);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "Test Cases";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -557,6 +559,8 @@
             this.tableLayoutPanel1.Controls.Add(this.cmdTest1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.label31, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.lblOutput, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.cmdTest_20, 1, 20);
+            this.tableLayoutPanel1.Controls.Add(this.label32, 0, 20);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -600,7 +604,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(888, 582);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(888, 625);
             this.tableLayoutPanel1.TabIndex = 0;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -999,16 +1003,35 @@
             this.lblOutput.Location = new System.Drawing.Point(485, 32);
             this.lblOutput.Multiline = true;
             this.lblOutput.Name = "lblOutput";
-            this.tableLayoutPanel1.SetRowSpan(this.lblOutput, 19);
+            this.tableLayoutPanel1.SetRowSpan(this.lblOutput, 20);
             this.lblOutput.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.lblOutput.Size = new System.Drawing.Size(398, 545);
             this.lblOutput.TabIndex = 42;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(3, 580);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(136, 13);
+            this.label32.TabIndex = 43;
+            this.label32.Text = "Transaction with Cashback";
+            // 
+            // cmdTest_20
+            // 
+            this.cmdTest_20.Location = new System.Drawing.Point(404, 583);
+            this.cmdTest_20.Name = "cmdTest_20";
+            this.cmdTest_20.Size = new System.Drawing.Size(75, 23);
+            this.cmdTest_20.TabIndex = 44;
+            this.cmdTest_20.Text = "Run Test";
+            this.cmdTest_20.UseVisualStyleBackColor = true;
+            this.cmdTest_20.Click += new System.EventHandler(this.cmdTest_20_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(902, 614);
+            this.ClientSize = new System.Drawing.Size(902, 657);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
             this.Text = "RMS Test App ";
@@ -1112,6 +1135,8 @@
         private System.Windows.Forms.Label label31;
         internal System.Windows.Forms.Button cmdLogout;
         private System.Windows.Forms.TextBox lblOutput;
+        private System.Windows.Forms.Button cmdTest_20;
+        private System.Windows.Forms.Label label32;
     }
 }
 

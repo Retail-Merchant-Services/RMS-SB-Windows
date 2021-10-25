@@ -84,12 +84,8 @@ namespace rms_testapp_cs
         {
             //If you receive script errors on login then call this 
            // IEbrowserFix();
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text,  txtReturnUrl.Text,txtBaseUrl.Text,       txtoAuthUrl.Text);
+          
             Properties.Settings.Default.Save();
             string url = rms.getoAuthUrl();
             var frm = new frmlogin();
@@ -118,14 +114,10 @@ namespace rms_testapp_cs
         {
             try
             {
-                var rms = new SmartBridge.Api();
-                rms.setoAuthUrl(txtoAuthUrl.Text);
-                rms.setBaseUrl(txtBaseUrl.Text);
-                rms.setKey(txtClientID.Text);
-                rms.setSecret(txtSecret.Text);
+                var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
                 rms.setToken(txtaccess.Text);
                 rms.setRefreshToken(txtRefresh.Text);
-                rms.setCallBackUrl(txtReturnUrl.Text);
                 rms.SetActiveTerminal(txtTerminalId.Text);
                 MessageBox.Show("The terminal has been set");
  
@@ -140,11 +132,8 @@ namespace rms_testapp_cs
 
         private void cmdGetTerminalList_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
             object terminals;
@@ -171,13 +160,10 @@ namespace rms_testapp_cs
         {
             try
             {
-                var rms = new SmartBridge.Api();
-                rms.setoAuthUrl(txtoAuthUrl.Text);
-                rms.setBaseUrl(txtBaseUrl.Text);
-                rms.setKey(txtClientID.Text);
-                rms.setSecret(txtSecret.Text);
+                var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
+                rms.setToken(txtaccess.Text);
                 rms.setRefreshToken(txtRefresh.Text);
-                rms.setCallBackUrl(txtReturnUrl.Text);
                 JObject j = (JObject)rms.refreshtoken();
                 if (j["access_token"] is object)
                 {
@@ -197,14 +183,10 @@ namespace rms_testapp_cs
 
         private void CmdMakeTransaction_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -224,15 +206,12 @@ namespace rms_testapp_cs
 
         private void cmdCheckStatus_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+           
             object resp;
             try
             {
@@ -249,15 +228,12 @@ namespace rms_testapp_cs
 
         private void cmdCancelTransaction_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+           
             object resp;
             try
             {
@@ -280,14 +256,10 @@ namespace rms_testapp_cs
 
         private void button1_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -307,15 +279,12 @@ namespace rms_testapp_cs
 
         private void button2_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            
             object resp;
             try
             {
@@ -332,12 +301,10 @@ namespace rms_testapp_cs
 
         private void cmdTest1_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
             Properties.Settings.Default.Save();
             string url = rms.getoAuthUrl();
             var frm = new frmlogin();
@@ -365,11 +332,8 @@ namespace rms_testapp_cs
 
         private void cmdTest2_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
             object terminals;
@@ -395,14 +359,10 @@ namespace rms_testapp_cs
 
         private void cmdTest3_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -423,14 +383,10 @@ namespace rms_testapp_cs
 
         private void cmdTest4_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -451,14 +407,10 @@ namespace rms_testapp_cs
 
         private void cmdTest5_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -479,14 +431,10 @@ namespace rms_testapp_cs
 
         private void cmdTest6_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -516,14 +464,10 @@ namespace rms_testapp_cs
 
         private void cmdTest7_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -540,14 +484,10 @@ namespace rms_testapp_cs
 
         private void cmdTest8_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -564,14 +504,10 @@ namespace rms_testapp_cs
 
         private void cmdTest9_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -601,14 +537,10 @@ namespace rms_testapp_cs
 
         private void cmdTest10_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -638,14 +570,10 @@ namespace rms_testapp_cs
 
         private void cmdTest11_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -674,14 +602,10 @@ namespace rms_testapp_cs
 
         private void cmdTest12_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -710,14 +634,10 @@ namespace rms_testapp_cs
 
         private void cmdTest13_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+   
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
             rms.setToken(txtaccess.Text);
-            rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.setRefreshToken(txtRefresh.Text); 
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -751,42 +671,32 @@ namespace rms_testapp_cs
 
         private void cmdTest19_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            
             rms.SetActiveTerminal(txtTerminalId.Text);
             rms.RequestReportByType("XBAL");
         }
 
         private void cmdTest20_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
-            rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            rms.setRefreshToken(txtRefresh.Text); 
             rms.SetActiveTerminal(txtTerminalId.Text);
             rms.RequestReportByType("ZBAL");
         }
 
         private void cmdTest15_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+           
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -803,14 +713,11 @@ namespace rms_testapp_cs
 
         private void cmdTest16_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+             
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -827,14 +734,11 @@ namespace rms_testapp_cs
 
         private void cmdTest17_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+           
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -851,14 +755,11 @@ namespace rms_testapp_cs
 
         private void cmdTest18_Click(object sender, EventArgs e)
         {
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             rms.setToken(txtaccess.Text);
             rms.setRefreshToken(txtRefresh.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            
             rms.SetActiveTerminal(txtTerminalId.Text);
             JObject resp;
             try
@@ -887,12 +788,8 @@ namespace rms_testapp_cs
         {
             //If you receive script errors on login then call this 
             // IEbrowserFix();
-            var rms = new SmartBridge.Api();
-            rms.setoAuthUrl(txtoAuthUrl.Text);
-            rms.setBaseUrl(txtBaseUrl.Text);
-            rms.setKey(txtClientID.Text);
-            rms.setSecret(txtSecret.Text);
-            rms.setCallBackUrl(txtReturnUrl.Text);
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
             Properties.Settings.Default.Save();
             string url = rms.getLogoutUrl();
             var frm = new frmlogin();
@@ -915,6 +812,30 @@ namespace rms_testapp_cs
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void cmdTest_20_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+            JObject resp;
+            try
+            {
+                resp = (JObject)rms.CreateTransaction(2400, "GBP", "SALE",2000);
+                lblOutput.Text = resp.ToString();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+
+            string transactionid = resp["transactionid"].ToString();
+            cmdCheckStatus.Tag = transactionid;
+            MessageBox.Show("Transaction  for 24 GBP and 20 GBP cashback :" + transactionid + " successfull \r\nCheck Status for approval");
         }
     }
 }
