@@ -83,9 +83,17 @@ namespace rms_testapp_cs
         private void cmdGetAccessToken_Click(object sender, EventArgs e)
         {
             //If you receive script errors on login then call this 
-           // IEbrowserFix();
-            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text,  txtReturnUrl.Text,txtBaseUrl.Text,       txtoAuthUrl.Text);
-          
+            // IEbrowserFix();
+            //var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text,  txtReturnUrl.Text,txtBaseUrl.Text,       txtoAuthUrl.Text);
+
+            String clientID = "3c65r36dinkd5n8fo4ud4829cn";
+            String clientSecret = "13dpgtvgfnqsn43drq20tdlvttps5m44luha7hauj6d6djua8j7f";
+           // String callbackUrl = "https://tableordeing.co.uk/PaymentStatus.aspx";
+            String callbackUrl = "https://www.postman.com/oauth2/callback";
+            String baseUrl = "https://api-terminal-sandbox.retailmerchantservices.net/";
+            String oAuthUrl = "https://api-auth-dev.retailmerchantservices.net";
+            var rms = new SmartBridge.Api(clientID, clientSecret, callbackUrl, baseUrl, oAuthUrl);
+
             Properties.Settings.Default.Save();
             string url = rms.getoAuthUrl();
             var frm = new frmlogin();
@@ -223,6 +231,12 @@ namespace rms_testapp_cs
                 return;
             }
             lblTransstatus.Text = (resp is null)?"":resp.ToString();
+
+            //if (lblTransstatus.Text.Contains("Success"))
+            {
+                this.btnPrint.Enabled = true;
+            }
+            
 
         }
 
@@ -836,6 +850,29 @@ namespace rms_testapp_cs
             string transactionid = resp["transactionid"].ToString();
             cmdCheckStatus.Tag = transactionid;
             MessageBox.Show("Transaction  for 24 GBP and 20 GBP cashback :" + transactionid + " successfull \r\nCheck Status for approval");
+        }
+
+        private void btnPrint_Click(object sender, EventArgs e)
+        {
+            var rms = new SmartBridge.Api(txtClientID.Text, txtSecret.Text, txtReturnUrl.Text, txtBaseUrl.Text, txtoAuthUrl.Text);
+
+            rms.setToken(txtaccess.Text);
+            rms.setRefreshToken(txtRefresh.Text);
+            rms.SetActiveTerminal(txtTerminalId.Text);
+
+            object resp;
+            try
+            {
+                resp = rms.printReceiptPOS((string)cmdCheckStatus.Tag);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                return;
+            }
+            //lblTransstatus.Text = (resp is null) ? "" : resp.ToString();
+
+            MessageBox.Show(resp.ToString());
         }
     }
 }
